@@ -224,6 +224,8 @@
                         <form id="logout-form7" action="{{ URL('generarToken') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+                        @else
+                        @if(auth()->user()->id_role == 3)
 
                             <li>
                                 <a  href="{{ URL('/sendToken') }}"
@@ -236,8 +238,11 @@
                             <form id="logout-form4" action="{{ URL('/sendToken') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
+                            @endif
 
-                        @else
+
+                            @if(auth()->user()->id_role != 3)
+
                         <li>
                             <a  href="{{ URL('/sendToken') }}"
                                 onclick="event.preventDefault();
@@ -249,6 +254,8 @@
                         <form id="logout-form5" action="{{ URL('/sendToken') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+                        @endif
+
                         @endif
 
 					<li class="divider"></li>

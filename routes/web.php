@@ -54,7 +54,7 @@ Route::get('/register', function () {
 Route::get('home', [AuthController::class, 'index2'])->middleware('auth');
 Route::get('code/{email}', function ($email) {
      return view('code-view')->with('email', $email);
-})->name('code')->middleware('auth');
+})->name('code');
 Route::fallback(function () {
     return redirect('/login');
 })->middleware('auth');
@@ -62,7 +62,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 Route::get('/tokenLogout', [AuthController::class, 'logoutDos'])->middleware('auth');
 Route::post('/register', [AuthController::class, 'register'])->middleware('auth');
-Route::post('code/login-with-code', [AuthController::class, 'loginWithCode'])->middleware('auth');
+Route::post('code/login-with-code', [AuthController::class, 'loginWithCode']);
 Route::get('editarUser/{id}', [AuthController::class, 'vistaEditar'])->middleware('auth');
 Route::get('editarUserBajo/{id}', [AuthController::class, 'vistaEditarDos'])->middleware('auth');
 Route::post('/tokenUserLow', [AuthController::class, 'tokenSendUserLow'])->middleware('auth');
