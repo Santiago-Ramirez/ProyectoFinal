@@ -21,7 +21,7 @@ use Illuminate\Http\Request;
 Route::middleware('guest')->group(function (){
   Route::get('login', function (Request $request) {
     session(['IPVPN' => $request->ip()]);
-    if($request->ip() == '127.0.0.1'){
+    if($request->ip() == '192.168.20.3'){
 
         return view('login-view');
     }
