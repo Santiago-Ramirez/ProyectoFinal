@@ -71,7 +71,7 @@ Route::post('/EliminarToken', [AuthController::class, 'tokenEliminar'])->middlew
 Route::put('/Editar', [AuthController::class, 'update'])->middleware('auth');
 Route::delete('/Eliminar', [AuthController::class, 'eliminar'])->middleware('auth');
 Route::post('/sendToken', [AuthController::class, 'tokenSocket'])->middleware('auth');
-Route::get('/pruebaAlerta', [AuthController::class, 'alertitaPutita'])->middleware('auth');
+Route::get('/pruebaAlerta', [AuthController::class, 'alertaPrueba'])->middleware('auth');
 Route::post('/message', function (Request $request) {
     $message = [
         'user'=>auth()->user()->nombre,
